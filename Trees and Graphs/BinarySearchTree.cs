@@ -1,7 +1,7 @@
 using System;
 using System.Diagnostics;
 
-namespace Algorithms
+namespace Algorithms.Trees
 {
 
         class Node

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
 
+using Algorithms.Trees;
+using Algorithms.Graphs;
 namespace Algorithms
 {
     class Program
@@ -9,6 +11,8 @@ namespace Algorithms
         {
 
            BinarySearchTree.Test(10);
+           
+           GraphSearch.Test();
         }
 
     }
