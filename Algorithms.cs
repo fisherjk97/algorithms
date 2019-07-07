@@ -16,11 +16,15 @@ namespace Algorithms
            GraphSearch.Test();
 
            //Sorting Algorithms
-           int[] input = Sort.Generate(10, 1000);
-           int[] bubbleSort = Sort.BubbleSort(input);
-           int[] selectionSort = Sort.SelectionSort(input);
-           int[] mergeSort = Sort.MergeSort(input);
-           
+           int[] input1 = Sort.Generate(10, 1000);
+           int[] input2 = Sort.Generate(10, 1000);
+           int[] input3 = Sort.Generate(10, 1000);
+           int[] input4 = Sort.Generate(10, 1000);
+
+           int[] bubbleSort = Sort.BubbleSort(input1);
+           int[] selectionSort = Sort.SelectionSort(input2);
+           int[] mergeSort = Sort.MergeSort(input3);
+           int[] quickSort = Sort.QuickSort(input4, 0, input4.Length - 1);
 
         }
 

@@ -140,6 +140,79 @@ namespace Algorithms.Sorting
         }
 
 
+        /// <summary>
+        /// Quick Sort: We pick a random element and partition the array 
+        /// such that all the numbers that are less than the partitioning element 
+        /// come before all elements that are greater than it. 
+        /// The partitioning element can be performed efficiently through a series of swaps. 
+        /// Repeating this partitioning around an element, the array will eventually become sorted.
+        /// However, the sorting could be very slow
+        /// Runtime: O (n * log(n)) average, O(n^2) worst case. Memory O (log(n))
+        /// </summary>
+        /// <param name="array"></param>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
+        public static int[] QuickSort(int[] array, int left, int right){
+            //Console.WriteLine("Quick Sort");
+            //Console.Write("Unsorted: ");
+            //Print(array);
+            if(left < right){
+                int pivot = Partition(array, left, right);
+
+            if(pivot > 1){//sort the left half
+                QuickSort(array, left, pivot - 1);
+            }
+            if(pivot + 1 < right){//sort the right half
+                QuickSort(array, pivot + 1, right);
+            }
+            }
+            //Console.Write("Sorted:   ");
+            //Print(array);
+            return array;
+        }
+
+        private static int Partition(int[] array, int left, int right){
+            int pivot = array[left];//pick a pivot point
+            while (true){
+                //find the element on left that should be on the right
+                while(array[left] < pivot){
+                    left++;
+                }
+
+                //find the element on the right that should be on the left
+                while (array[right] > pivot){
+                    right--;
+                }
+
+                //swap elements and move left/right indices
+                if (left < right){
+                    if(array[left] == array[right]){
+                        return right;
+                    }
+                   int temp = array[left];
+                   array[left] = array[right];
+                   array[right] = temp;
+
+                    
+                }else{
+                    return right;
+                }
+            }
+
+          
+        }
+
+
+        private static int[] Swap(int[] array, int left, int right){
+            int temp;
+            temp = array[right];
+            array[right] = array[left];
+            array[left] = temp; 
+
+            return array;
+        }
+
 
         public static void Print(int[] input){
             for (int i = 0; i < input.Length; i++)
