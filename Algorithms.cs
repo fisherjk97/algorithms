@@ -36,7 +36,28 @@ namespace Algorithms
            int binarySearch = Search.BinarySearch(mergeSort, value);
            int binarySearchRecursive = Search.BinarySearchRecursive(mergeSort, value, 0, mergeSort.Length - 1);
 
-           
+           int[,] dGraph =  {
+                         { 0, 6, 0, 0, 0, 0, 0, 9, 0 },
+                         { 6, 0, 9, 0, 0, 0, 0, 11, 0 },
+                         { 0, 9, 0, 5, 0, 6, 0, 0, 2 },
+                         { 0, 0, 5, 0, 9, 16, 0, 0, 0 },
+                         { 0, 0, 0, 9, 0, 10, 0, 0, 0 },
+                         { 0, 0, 6, 0, 10, 0, 2, 0, 0 },
+                         { 0, 0, 0, 16, 0, 2, 0, 1, 6 },
+                         { 9, 11, 0, 0, 0, 0, 1, 0, 5 },
+                         { 0, 0, 2, 0, 0, 0, 6, 5, 0 }
+                            };
+ 
+            GraphTraversal.Dijkstra(dGraph, 0, 9);
+
+
+            int[, ] pGraph = new int[, ] { { 0, 2, 0, 6, 0 }, 
+                                      { 2, 0, 3, 8, 5 }, 
+                                      { 0, 3, 0, 0, 7 }, 
+                                      { 6, 8, 0, 0, 9 }, 
+                                      { 0, 5, 7, 9, 0 } };
+
+            GraphTraversal.PrimMST(pGraph, 5);
 
         }
 
