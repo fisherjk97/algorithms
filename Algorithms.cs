@@ -1,9 +1,13 @@
-﻿using System;
+﻿//#define DEBUG
+
+using System;
 using System.Diagnostics;
 
 using Algorithms.Trees;
 using Algorithms.Graphs;
 using Algorithms.Sorting;
+using Algorithms.Searching;
+
 namespace Algorithms
 {
     class Program
@@ -15,16 +19,20 @@ namespace Algorithms
            BinarySearchTree.Test(10);
            GraphSearch.Test();
 
+           int[] data = Helper.Generate(10, 1000);
            //Sorting Algorithms
-           int[] input1 = Sort.Generate(10, 1000);
-           int[] input2 = Sort.Generate(10, 1000);
-           int[] input3 = Sort.Generate(10, 1000);
-           int[] input4 = Sort.Generate(10, 1000);
+           int[] bubbleSort = Sort.BubbleSort(data);
+           int[] selectionSort = Sort.SelectionSort(data);
+           int[] insertionSort = Sort.InsertionSort(data);
+           int[] mergeSort = Sort.MergeSort(data);
+           int[] quickSort = Sort.QuickSort(data, 0, data.Length /2);
 
-           int[] bubbleSort = Sort.BubbleSort(input1);
-           int[] selectionSort = Sort.SelectionSort(input2);
-           int[] mergeSort = Sort.MergeSort(input3);
-           int[] quickSort = Sort.QuickSort(input4, 0, input4.Length - 1);
+            //Searching Algorithms
+           int value = mergeSort[mergeSort.Length / 2];
+           int binarySearch = Search.BinarySearch(mergeSort, value);
+           int binarySearchRecursive = Search.BinarySearchRecursive(mergeSort, value, 0, mergeSort.Length - 1);
+
+           
 
         }
 

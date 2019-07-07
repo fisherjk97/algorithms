@@ -1,6 +1,5 @@
 using System;
 using System.Diagnostics;
-
 /*Examples come from "Cracking the Coding Interview - Gayle Laakmann McDowell */
 
 
@@ -21,7 +20,7 @@ namespace Algorithms.Sorting
             Console.WriteLine("Bubble Sort");
             int temp; 
             Console.Write("Unsorted: ");
-            Print(input);
+            Helper.Print(input);
 
             for(int i = 0; i < input.Length - 1; i++){
                 for(int j = 0; j < input.Length - 1; j++){
@@ -29,13 +28,17 @@ namespace Algorithms.Sorting
                             temp = input[j+1];
                             input[j+1] = input[j];
                             input[j] = temp;
-                            //Print(input);
                         }
                 }
+                Helper.Print(input);
             }
             
             Console.Write("Sorted:   ");
-            Print(input);
+            Helper.Print(input);
+
+            //assign to new array
+           
+
             return input;
         }
 
@@ -53,7 +56,7 @@ namespace Algorithms.Sorting
             int temp; 
             int smallest;
             Console.Write("Unsorted: ");
-            Print(input);
+            Helper.Print(input);
 
             for(int i = 0; i < input.Length - 1; i++){
                 smallest = i;
@@ -65,10 +68,41 @@ namespace Algorithms.Sorting
                 temp = input[smallest];
                 input[smallest] = input[i];
                 input[i] = temp;
+                Helper.Print(input);
             }
             
             Console.Write("Sorted:   ");
-            Print(input);
+            Helper.Print(input);
+            return input;
+        }
+
+
+                /// <summary>
+        /// Insertion Sort:
+        /// Runtime: 
+        /// Average and Worse Case: 
+        /// </summary>
+        /// <param name="input"></param>
+        public static int[] InsertionSort(int[] input){
+            Console.WriteLine("Insertion Sort");
+            Console.Write("Unsorted: ");
+            Helper.Print(input);
+
+            for(int i = 1; i < input.Length; i++){
+                int key = input[i];
+                int j = i - 1;
+
+                //move elements of array[0...i - 1] that are greater than key to one positoin ahead of their current position
+                while(j >= 0 && input[j] > key){
+                    input[j + 1] = input[j];
+                    j = j - 1;
+                }
+                input[j + 1] = key;
+                Helper.Print(input);
+            }
+            
+            Console.Write("Sorted:   ");
+            Helper.Print(input);
             return input;
         }
 
@@ -85,13 +119,13 @@ namespace Algorithms.Sorting
         public static int[] MergeSort(int[] input){
             Console.WriteLine("Merge Sort");
             Console.Write("Unsorted: ");
-            Print(input);
+            Helper.Print(input);
 
             int[] helper = new int[input.Length];
             MergeSort(input, helper, 0, input.Length -1);
             
             Console.Write("Sorted:   ");
-            Print(input);
+            Helper.Print(input);
             return input;
         }
 
@@ -156,7 +190,7 @@ namespace Algorithms.Sorting
         public static int[] QuickSort(int[] array, int left, int right){
             //Console.WriteLine("Quick Sort");
             //Console.Write("Unsorted: ");
-            //Print(array);
+            //Helper.Print(array);
             if(left < right){
                 int pivot = Partition(array, left, right);
 
@@ -168,7 +202,7 @@ namespace Algorithms.Sorting
             }
             }
             //Console.Write("Sorted:   ");
-            //Print(array);
+            //Helper.Print(array);
             return array;
         }
 
@@ -214,28 +248,5 @@ namespace Algorithms.Sorting
         }
 
 
-        public static void Print(int[] input){
-            for (int i = 0; i < input.Length; i++)
-            {
-                if(i < input.Length - 1){
-                    Console.Write(input[i] + ", ");
-                }else{
-                    Console.Write(input[i]);
-                }
-            }
-             Console.WriteLine();
-        }
-
-        public static int[] Generate(int size, int maxValue){
-              int[] a = new int[size];
-                Random random = new Random();
-                //generate numbers
-                for (int i = 0; i < size; i++)
-                {
-                    a[i] = random.Next(maxValue);
-                }
-
-                return a;
-        }
     }
 }
