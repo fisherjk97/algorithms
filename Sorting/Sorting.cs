@@ -237,14 +237,71 @@ namespace Algorithms.Sorting
           
         }
 
+        /// <summary>
+        /// Heap Sort
+        /// </summary>
+        /// <param name="array"></param>
+        /// <returns></returns>
+        public static int[] HeapSort(int[] array){
+            int n = array.Length;
+            Console.WriteLine("Heap Sort");
+            Console.Write("Unsorted: ");
+            Helper.Print(array);
+            //build heap (rearrange array)
+            for (int i = n/2 - 1; i >= 0; i--){
+                array = Heapify(array, n, i);
+            }
+            //one by one extract an element from the heap
+            for(int i = n-1; i >=0; i--){
+                //move current root to the end
+                int temp = array[0];
+                array[0] = array[i];
+                array[i] = temp;
 
-        private static int[] Swap(int[] array, int left, int right){
-            int temp;
-            temp = array[right];
-            array[right] = array[left];
-            array[left] = temp; 
+                //call max heapify on the reduced heap
+                array = Heapify(array, i, 0);
 
+            }
+
+            Console.Write("Sorted:   ");
+            Helper.Print(array);
             return array;
+        }
+
+        /// <summary>
+        /// To heapify a subtree rooted with node i which is an index in array[]. 
+        /// </summary>
+        /// <param name="array">array to heapify</param>
+        /// <param name="n">size of the heap</param>
+        /// <param name="i">node</param>
+        /// <returns></returns>
+        private static int[] Heapify(int[] array, int n, int i){
+                int largest = i;//initialize the largest as root;
+                int left = 2 * i + 1;// left
+                int right = 2 * i + 2;//right
+
+                //if left child is larger than root
+
+                if(left < n && array[left] > array[largest]){
+                    largest = left;
+                }
+
+                //if right child is larger than root
+
+                if(right < n && array[right] > array[largest]){
+                    largest = right;
+                }
+
+                //if largest is not root
+                if(largest != i){
+                    int swap = array[i];
+                    array[i] = array[largest];
+                    array[largest] = swap;
+
+                    //recursively heapify the affected sub-tree
+                    Heapify(array, n, largest);
+                }
+                return array;
         }
 
 
