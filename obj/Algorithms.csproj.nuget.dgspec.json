@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Github\\Algorithms\\Algorithms.csproj": {}
+    "d:\\Github\\Algorithms\\Algorithms.csproj": {}
   },
   "projects": {
-    "D:\\Github\\Algorithms\\Algorithms.csproj": {
+    "d:\\Github\\Algorithms\\Algorithms.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Github\\Algorithms\\Algorithms.csproj",
+        "projectUniqueName": "d:\\Github\\Algorithms\\Algorithms.csproj",
         "projectName": "Algorithms",
-        "projectPath": "D:\\Github\\Algorithms\\Algorithms.csproj",
+        "projectPath": "d:\\Github\\Algorithms\\Algorithms.csproj",
         "packagesPath": "C:\\Users\\John\\.nuget\\packages\\",
-        "outputPath": "D:\\Github\\Algorithms\\obj\\",
+        "outputPath": "d:\\Github\\Algorithms\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
