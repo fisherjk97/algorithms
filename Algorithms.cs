@@ -7,6 +7,7 @@ using Algorithms.Trees;
 using Algorithms.Graphs;
 using Algorithms.Sorting;
 using Algorithms.Searching;
+using Algorithms.BinaryTree;
 
 namespace Algorithms
 {
@@ -58,6 +59,38 @@ namespace Algorithms
                                       { 0, 5, 7, 9, 0 } };
 
             GraphTraversal.PrimMST(pGraph, 5);
+
+
+            //Word Sorter
+            BinaryTree<string> tree = new BinaryTree<string>();
+            string input = string.Empty;
+
+            while(!input.Equals("quit", StringComparison.CurrentCultureIgnoreCase)){
+
+                //read the line from the user
+                Console.Write("> ");
+                input = Console.ReadLine();
+                //split the line into words (on space)
+                string[] words = input.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries);
+
+                //add each word to the tree
+
+                foreach(string word in words){
+                    tree.Add(word);
+                }
+
+                //print the number of words
+                Console.WriteLine("{0} words", tree.Count);
+
+                //add print each word using the default (in-order enumerator)
+                foreach(string word in tree){
+                    Console.Write("{0} ", word);
+                }
+
+                Console.WriteLine();
+
+                tree.Clear();
+            }
 
         }
 

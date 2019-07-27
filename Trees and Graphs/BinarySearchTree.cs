@@ -27,55 +27,69 @@ namespace Algorithms.Trees
 
                 return root;
             }
+
+            public Node Find(Node current, int v){
+                if(current == null){
+                    return null;
+                }
+                if(current.value == v){
+                    return current;
+                }
+                if(v < current.value){
+                    return Find(current.left, v);
+                }
+                return Find(current.right, v);
+            }
         
-        public void Visit(Node node){
-            Console.WriteLine("Node value: " + node.value);
-        }
-
-        public void Traverse(Node root){
-            if(root == null){
-                return;
+            public void Visit(Node node){
+                Console.WriteLine("Node value: " + node.value);
             }
 
-            Traverse(root.left);
-            Traverse(root.right);
-        }
+            public void Traverse(Node root){
+                if(root == null){
+                    return;
+                }
 
-        /// <summary>
-        /// Visit the left branch, then the current node, and finally the right branch
-        /// </summary>
-        /// <param name="node"></param>
-        public void InOrderTraversal(Node node){
-            if(node != null){
-                InOrderTraversal(node.left);
-                Visit(node);
-                InOrderTraversal(node.right);
+                Traverse(root.left);
+                Traverse(root.right);
             }
-        }
 
-        /// <summary>
-        /// Visit the current node before it's child nodes
-        /// </summary>
-        /// <param name="node"></param>
-        public void PreOrderTraversal(Node node){
-            if(node != null){
-                Visit(node);
-                InOrderTraversal(node.left);
-                InOrderTraversal(node.right);
+            /// <summary>
+            /// Visit the left branch, then the current node, and finally the right branch
+            /// Special characteristic: Look at the items in sort order
+            /// </summary>
+            /// <param name="node"></param>
+            public void InOrderTraversal(Node node){
+                if(node != null){
+                    InOrderTraversal(node.left);
+                    Visit(node);
+                    InOrderTraversal(node.right);
+                }
             }
-        }
 
-        /// <summary>
-        /// Visit the current node after it's child nodes
-        /// </summary>
-        /// <param name="node"></param>
-        public void PostOrderTraversal(Node node){
-            if(node != null){
-                InOrderTraversal(node.left);
-                InOrderTraversal(node.right);
-                Visit(node);
+            /// <summary>
+            /// Visit the current node before it's child nodes
+            /// </summary>
+            /// <param name="node"></param>
+            public void PreOrderTraversal(Node node){
+                if(node != null){
+                    Visit(node);
+                    InOrderTraversal(node.left);
+                    InOrderTraversal(node.right);
+                }
             }
-        }
+
+            /// <summary>
+            /// Visit the current node after it's child nodes
+            /// </summary>
+            /// <param name="node"></param>
+            public void PostOrderTraversal(Node node){
+                if(node != null){
+                    InOrderTraversal(node.left);
+                    InOrderTraversal(node.right);
+                    Visit(node);
+                }
+            }
 
 
         }
