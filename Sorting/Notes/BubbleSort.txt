@@ -1,0 +1,46 @@
+Bubble Sort
+
+- Simplest sorting algorithm
+- On Each Pass
+    - Compare each array item to it's right neighbor
+    - If the right neighbor is smaller, then swap right and left
+    - Repeat for remaining array items
+- Perform subsequent passes until no swaps are performed
+
+Example: 
+
+Data: 3, 7, 4, 4, 6, 5, 8
+
+Pass 1: (4 swaps)
+    Start: 3, 7, 4, 4, 6, 5, 8
+    Swap : 3, 4, 7, 4, 6, 5, 8
+    Swap : 3, 4, 4, 7, 6, 5, 8
+    Swap : 3, 4, 4, 6, 7, 5, 8
+    Swap : 3, 4, 4, 6, 5, 7, 8
+    End  : 3, 4, 4, 6, 5, 7, 8
+
+
+Pass 2: (1 swap)
+    Start: 3, 4, 4, 6, 5, 7, 8
+    Swap : 3, 4, 4, 5, 6, 7, 8
+    End  : 3, 4, 4, 5, 6, 7, 8
+
+Pass 3: (0 swaps)
+    Start: 3, 4, 4, 5, 6, 7, 8
+    End  : 3, 4, 4, 5, 6, 7, 8
+
+Data is now sorted
+
+Performance: 
+
+Worst Case: O(n^2)
+    - Not appropriate for large unsorted data sets
+
+Average Case: O(n^2)
+    - Not appropriate for large unsorted data sets
+
+Average Case: O(n)
+    - Very good and can efficiently sort small and nearly sorted data sets
+
+Space: O(n)
+    - Operates directly on the input array meaning it is a candidate algorithm when minimizing space is crucial

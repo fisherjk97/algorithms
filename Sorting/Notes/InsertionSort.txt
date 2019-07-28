@@ -1,0 +1,37 @@
+Insertion Sort
+
+- Sorts each item in the array as they are encountered
+- As the current item works from left to right
+    - Everything left of the item is known to be sorted
+    - Everything to the right is unsorted
+- The current item is "inserted" into place within the sorted section
+
+Example: 
+
+Data: 5, 3, 4, 4, 8, 6, 7
+
+Pass 1: (5 swaps)
+    Start   : 5, 3, 4, 4, 8, 6, 7
+    Swap    : 3, 5, 4, 4, 8, 6, 7
+    Swap    : 3, 4, 5, 4, 8, 6, 7
+    Swap    : 3, 4, 4, 5, 8, 6, 7
+    No Swap : 3, 4, 4, 5, 8, 6, 7
+    Swap    : 3, 4, 4, 5, 6, 8, 7
+    Swap    : 3, 4, 4, 5, 6, 7, 8
+    End     : 3, 4, 4, 5, 6, 7, 8
+
+Data is now sorted
+
+Performance: 
+
+Worst Case: O(n^2)
+    - Not appropriate for large unsorted data sets
+
+Average Case: O(n^2)
+    - Not appropriate for large unsorted data sets
+
+Average Case: O(n)
+    - Very good and can efficiently sort small and nearly sorted data sets
+
+Space: O(n)
+    - Operates directly on the input array meaning it is a candidate algorithm when minimizing space is crucial
