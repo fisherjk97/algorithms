@@ -30,7 +30,7 @@ Worst Case: O(n^2)
 Average Case: O(n^2)
     - Not appropriate for large unsorted data sets
 
-Average Case: O(n)
+Best Case: O(n)
     - Very good and can efficiently sort small and nearly sorted data sets
 
 Space: O(n)
