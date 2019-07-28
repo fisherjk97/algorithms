@@ -1,0 +1,46 @@
+Quick Sort
+
+- Divide and Conquer algorithm
+- Pick a pivot value and partition the array 
+- Put all values before the pivot to the left and above to the right
+    - The pivot point is now sorted - everything right is larger, everything left is smaller
+- Perform pivot and partition algorithm on the left and right partitions
+- Repeat until sorted
+
+Example: 
+
+Data: 3, 8, 2, 1, 5, 4, 6, 7
+
+Step 1: Pick a pivot point (5)
+    Swap: 4 and 8 positions so that everything left of 5 is smaller and everything right of 5 is larger
+    Move w/ pivot : 3, 4, 2, 1, 5, 8, 6, 7
+
+Step 2: Pick a pivot point (2)
+    Swap: 1 and 3 positions with 2 so that everything left of 2 is smaller and everything right of 2 is larger
+    Move w/ pivot : 1, 2, 3, 4, 5, 8, 6, 7
+
+Step 3: Pick a pivot point (3)
+    No Swap needed: Everything left of 3 is smaller and to the right is larger
+    Move w/ pivot : 1, 2, 3, 4, 5, 8, 6, 7
+
+Step 4: Move to other side, greater than 5. Pick a pivot point (7)
+    Swap: 6 and 8 positions with 7 so that everything left of 7 is smaller and everything right of 7 is larger
+    Move w/ pivot : 1, 2, 3, 4, 5, 6, 7, 8
+
+Data is now sorted
+
+Performance: 
+
+Worst Case: O(n^2)
+    - Not appropriate for large pathologically sorted (inverse sorted) data sets
+
+Average Case: O(n * log(n))
+    - Appropriate for large unsorted data sets
+
+Best Case: O(n * log(n))
+    - Very good best case performance
+    - Can efficiently sort small and nearly sorted data sets
+
+Space: O(n)
+    - As a recursive algorithm the array space as well as the stack space must be considered. 
+    - There exist optimizations to reduce space usage further

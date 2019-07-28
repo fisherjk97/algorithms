@@ -1,0 +1,46 @@
+Merge Sort
+
+- The array is recursively split in half
+- When the array is in groups of 1, it is reconstructed in sort order
+- Each reconstructed array is merged with the other half
+
+Example: 
+
+Data: 3, 8, 2, 1, 5, 4, 6, 7
+
+Step 1: Split array in half
+    Split : 3, 8, 2, 1 | 5, 4, 6, 7
+
+Step 2: Split array in half (again)
+    Split : 3, 8 | 2, 1 | 5, 4 | 6, 7
+
+Step 3: Split array in half (again)
+    Split : 3 | 8 | 2 |  1 | 5 | 4 | 6 |  7
+
+Step 4: Reconstruct in sort order
+    Build : 3, 8 | 1, 2 | 4, 5 | 6, 7
+
+Step 5: Reconstruct in sort order (again)
+    Build : 1, 2, 3, 8 | 4, 5, 6, 7
+
+Step 6: Reconstruct in sort order (again)
+    Build : 1, 2, 3, 4, 5, 6, 7, 8
+
+Data is now sorted
+
+Performance: Fixed
+
+Worst Case: O(n * log(n))
+    - Appropriate for large unsorted data sets
+    - Data splitting means the algorithm can be made parallel
+
+Average Case: O(n * log(n))
+    - Appropriate for large unsorted data sets
+
+Best Case: O(n * log(n))
+    - Appropriate for large unsorted data sets
+    - Has to do splitting, sorting, and reconstruction the same way. Very predictable
+    - Data size influences performance
+
+Space: O(n)
+    -Merge can be, but not often done, performed in place. These extra allocations increase the memory footprint to sort data
